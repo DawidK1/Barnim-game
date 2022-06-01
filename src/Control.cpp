@@ -1,4 +1,3 @@
-
 #include "Control.h"
 #include <iostream>
 #include <SFML/Window.hpp>
@@ -15,7 +14,13 @@ Control::Control(bool scr):fullscreen(scr){
 }
 
 
-void Control::output(){
+/*
+* Wróbel: Ten kod odpowiada za wyrzucanie ró¿nych informacji w konsoli
+* Póki co wy³¹czam, bo syfi
+*/
+void Control::output()
+{
+	/*
 	std::cout << "Monitor size: " << monitor[0] << ", " << monitor[1] << std::endl;
 	std::cout << "Screen size: " << screen[0] << ", " << screen[1] << std::endl;
 	std::cout << "Fullscreen: " << fullscreen << std::endl;
@@ -23,7 +28,9 @@ void Control::output(){
 	std::cout << "Game Time: " << game_time.asSeconds() << std::endl;
 	std::cout << "Mouse Position: " << mouse.x << " " << mouse.y << std::endl;
 	std::cout << std::endl;
+	*/
 }
+
 
 void Control::center_window(){
 	window.setPosition(
@@ -63,11 +70,28 @@ void Control::render(){
 	window.display();
 }
 
+/*
+* Wróbel:
+* Wiêc tak
+* Ten program jest doœæ ró¿ny od przyk³adowych programów z samouczków, bo ktoœ (w sumie s³usznie) pobawi³ siê w wrapowanie
+* St¹d potrzeba mieszania w doœæ dziwnych miejscach
+* Tak czy siak, poni¿ej jes funkcja run(), w której mieœci siê treœæ tego, co ma byæ wyœwietlane
+*/
+sf::CircleShape shape(100.f); //Wróbel: Tak, to mo¿na wywaliæ do nag³ówka
+
 void Control::run(){
-	while (window.isOpen()){
+	while (window.isOpen())
+	{
 		sf::Event event;
 		events(event);
 		update();
-		render();
+		//render(); Wróbel: Pomijam czêœæ zwrapowanego programu, ¿eby zrobiæ coœ "po swojemu"
+
+		shape.setFillColor(sf::Color::Green);
+
+
+		window.clear();
+		window.draw(shape);
+		window.display();
 	}
 }
