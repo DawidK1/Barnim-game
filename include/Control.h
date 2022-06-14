@@ -4,8 +4,12 @@
 
 #include <SFML/Window.hpp>
 #include <SFML/Graphics.hpp>
-
+#include <vector>
 class Control{
+    private:
+    std::vector<sf::Texture> textures;
+    std::vector<sf::Sprite> sprites;
+    
     public:
         sf::RenderWindow window;
         unsigned int monitor[2] = {sf::VideoMode::getDesktopMode().width, sf::VideoMode::getDesktopMode().height},
@@ -24,5 +28,6 @@ class Control{
         void update();
         void render();
         void run();
+        void addTexture(char *filename, int x, int y);
 };   
 #endif
