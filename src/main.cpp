@@ -7,6 +7,6 @@ int main(){
 	app.addTexture("res/graphics/hero.png",200,200);
 	app.addTexture("res/graphics/hero.png",300,300);
 	app.addTexture("res/graphics/hero.png",400,400);
-//	Barnim::Hero Hero;
+	Barnim::Hero Hero;
 	app.run();
 }

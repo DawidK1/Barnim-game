@@ -6,6 +6,8 @@ namespace Barnim
 	class Hero : public virtual DrawableObject
 	{
 		public:
+		Hero(){};
+		~Hero(){};
 		sf::Texture getTexture() { return texture; };
 	};
 };
