@@ -14,9 +14,11 @@ namespace Barnim {
 			glm::vec2 texCoords;
 		public:
 			DrawableObject(){};
-			~DrawableObject();
+			~DrawableObject(){};
 			void LoadTexture( std::string texturePath, float x, float y, float w, float h );
 			virtual sf::Texture getTexture();
+			glm::vec2 getPos(){ return position; };
+			glm::vec2 getCoords(){ return texCoords; };
 	};
 };
 #endif
