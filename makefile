@@ -3,7 +3,8 @@ CFLAGS=-c -Wall -std=c++11 -Iinclude/
 LDFLAGS=
 LIBFLAGS=-lsfml-graphics -lsfml-window -lsfml-system
 SOURCES=src/main.cpp \
-        src/Control.cpp
+        src/Control.cpp\
+		src/DrawableObject.cpp
 		
 OBJECTS=$(SOURCES:.cpp=.o)
 EXECUTABLE=build/main
