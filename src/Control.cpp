@@ -69,12 +69,22 @@ void Control::update()
 
 void Control::render()
 {
+	//sf::Sprite sprite;
+	//glm::vec2 position; 
 	window.clear();
 
 	for(auto sprite:sprites)
 	{
 		window.draw(sprite);
 	}
+	for (auto Objectptr:objects)
+	{
+		//sprite=Objectptr->getTexture();
+
+		//sprite.setPosition(sf::Vector2f(position.x, position.y));
+		window.draw(Objectptr->getTexture());
+	}
+	
 	window.display();
 }
 
@@ -102,4 +112,8 @@ void Control::addTexture(char *filename, int x, int y)
 	sprite.setPosition(sf::Vector2f(x, y));
 	sprite.setTexture(textures[textures.size()-1]);
 	sprites.push_back(sprite);
+}
+void Control::addDrawableObject(Barnim::DrawableObject *object)
+{
+	objects.push_back(object);
 }

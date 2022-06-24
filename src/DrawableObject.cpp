@@ -7,5 +7,12 @@ void Barnim::DrawableObject::LoadTexture( std::string texturePath, float x, floa
 		texture.setSmooth( true );
 		position = glm::vec2( x, y );
 		size = glm::vec2( w, h );
+		sprite.setPosition(sf::Vector2f(x, y));
+		sprite.setTexture(texture);
 	}
+}
+sf::Sprite Barnim::DrawableObject::getTexture()
+{
+	sprite.setPosition(sf::Vector2f(position[0], position[1]));
+	return sprite;
 }

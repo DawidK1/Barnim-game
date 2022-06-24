@@ -5,11 +5,12 @@
 #include <SFML/Window.hpp>
 #include <SFML/Graphics.hpp>
 #include <vector>
+#include "DrawableObject.h"
 class Control{
     private:
     std::vector<sf::Texture> textures;
     std::vector<sf::Sprite> sprites;
-    
+    std::vector<Barnim::DrawableObject*> objects;
     public:
         sf::RenderWindow window;
         unsigned int monitor[2] = {sf::VideoMode::getDesktopMode().width, sf::VideoMode::getDesktopMode().height},
@@ -29,5 +30,6 @@ class Control{
         void render();
         void run();
         void addTexture(char *filename, int x, int y);
+        void addDrawableObject(Barnim::DrawableObject *object);
 };   
 #endif

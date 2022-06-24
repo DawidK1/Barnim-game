@@ -8,7 +8,6 @@ namespace Barnim
 		public:
 		Hero(){};
 		~Hero(){};
-		sf::Texture getTexture() { return texture; };
 	};
 };
 #endif
