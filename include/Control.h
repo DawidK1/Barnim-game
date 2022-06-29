@@ -1,17 +1,18 @@
 #ifndef CONTROL_H
 #define CONTROL_H
 
-
 #include <SFML/Window.hpp>
 #include <SFML/Graphics.hpp>
 #include <vector>
 #include "DrawableObject.h"
+#include "keyboard.h"
 class Control{
     private:
     std::vector<sf::Texture> textures;
     std::vector<sf::Sprite> sprites;
     std::vector<Barnim::DrawableObject*> objects;
     public:
+    Barnim::Keyboard keyboard;
         sf::RenderWindow window;
         unsigned int monitor[2] = {sf::VideoMode::getDesktopMode().width, sf::VideoMode::getDesktopMode().height},
             screen[2] = {800,600};

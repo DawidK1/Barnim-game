@@ -19,6 +19,7 @@ namespace Barnim {
 			virtual sf::Sprite getTexture();
 			glm::vec2 getPos(){ return position; };
 			glm::vec2 getCoords(){ return texCoords; };
+			void movement(int options);
 	};
 };
 #endif

@@ -6,5 +6,6 @@ int main(){
 	Barnim::Hero Hero;
 	Hero.LoadTexture("res/graphics/hero.png",200,200,0,0);
 	app.addDrawableObject(&Hero);
+	app.keyboard.add_callback((void (*)())(&Hero.onDownMovement),sf::Keyboard::Up);
 	app.run();
 }

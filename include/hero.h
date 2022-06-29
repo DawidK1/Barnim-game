@@ -8,6 +8,10 @@ namespace Barnim
 		public:
 		Hero(){};
 		~Hero(){};
+		void onUpMovement();
+		void onLeftMovement();
+		void onRightMovement();
+		void onDownMovement();
 	};
 };
 #endif

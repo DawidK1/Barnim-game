@@ -4,6 +4,7 @@
 #include <SFML/Window.hpp>
 #include <SFML/Graphics.hpp>
 
+
 Control::Control(bool scr) : fullscreen(scr)
 {
 	time = sf::seconds(0);
@@ -19,13 +20,13 @@ Control::Control(bool scr) : fullscreen(scr)
 
 void Control::output()
 {
-	std::cout << "Monitor size: " << monitor[0] << ", " << monitor[1] << std::endl;
-	std::cout << "Screen size: " << screen[0] << ", " << screen[1] << std::endl;
-	std::cout << "Fullscreen: " << fullscreen << std::endl;
-	std::cout << "Frame Time: " << time.asSeconds() << std::endl;
-	std::cout << "Game Time: " << game_time.asSeconds() << std::endl;
-	std::cout << "Mouse Position: " << mouse.x << " " << mouse.y << std::endl;
-	std::cout << std::endl;
+// 	std::cout << "Monitor size: " << monitor[0] << ", " << monitor[1] << std::endl;
+// 	std::cout << "Screen size: " << screen[0] << ", " << screen[1] << std::endl;
+// 	std::cout << "Fullscreen: " << fullscreen << std::endl;
+// 	std::cout << "Frame Time: " << time.asSeconds() << std::endl;
+// 	std::cout << "Game Time: " << game_time.asSeconds() << std::endl;
+// 	std::cout << "Mouse Position: " << mouse.x << " " << mouse.y << std::endl;
+// 	std::cout << std::endl;
 }
 
 void Control::center_window()
@@ -50,6 +51,23 @@ void Control::events(sf::Event e)
 			{
 				window.close();
 			}
+			keyboard.on_key_pressed(e.key.code);
+			// if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up))
+			// {std::cout<<"Up arrow"<<std::endl;}
+			// if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left))
+			// {std::cout<<"Left arrow"<<std::endl;}
+			// if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right))
+			// {std::cout<<"Right arrow"<<std::endl;}
+			// if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down))
+			// {std::cout<<"Down arrow"<<std::endl;}
+			// if (sf::Keyboard::isKeyPressed(sf::Keyboard::W))
+			// {std::cout<<"W key"<<std::endl;}
+			// if (sf::Keyboard::isKeyPressed(sf::Keyboard::A))
+			// {std::cout<<"A key"<<std::endl;}
+			// if (sf::Keyboard::isKeyPressed(sf::Keyboard::S))
+			// {std::cout<<"S key"<<std::endl;}
+			// if (sf::Keyboard::isKeyPressed(sf::Keyboard::D))
+			// {std::cout<<"D key"<<std::endl;}
 		}
 	}
 }

@@ -16,3 +16,22 @@ sf::Sprite Barnim::DrawableObject::getTexture()
 	sprite.setPosition(sf::Vector2f(position[0], position[1]));
 	return sprite;
 }
+void Barnim::DrawableObject::movement(int options)
+{
+	if (options==0)
+	{
+		position[1]=position[1]-1;
+	}
+	if (options==1)
+	{
+		position[0]=position[0]-1;
+	}
+	if (options==2)
+	{
+		position[0]=position[0]+1;
+	}
+	if (options==3)
+	{
+		position[1]=position[1]+1;
+	}
+}
