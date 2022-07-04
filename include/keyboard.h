@@ -14,7 +14,7 @@ namespace Barnim
 			void (*callback)();
 			sf::Keyboard::Key key;
 			keyboardCallbackHandler(void (*func)(),sf::Keyboard::Key key){this->key=key; callback=func;}
-			keyboardCallbackHandler(const keyboardCallbackHandler& old){key=old.key; callback=old.callback;}  //ClassName (const ClassName &old_obj);
+			keyboardCallbackHandler(const keyboardCallbackHandler& old){key=old.key; callback=old.callback;}
 		};
 		std::vector<Barnim::Keyboard::keyboardCallbackHandler> handlers;
 		public:
