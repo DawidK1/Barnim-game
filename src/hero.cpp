@@ -2,17 +2,17 @@
 
 void Barnim::Hero::onUpMovement()
 {
-    Barnim::DrawableObject::movement(0);
+    Barnim::DrawableObject::movement(UP);
 }
 void Barnim::Hero::onLeftMovement()
 {
-    Barnim::DrawableObject::movement(1);
+    Barnim::DrawableObject::movement(LEFT);
 }
 void Barnim::Hero::onRightMovement()
 {
-    Barnim::DrawableObject::movement(2);
+    Barnim::DrawableObject::movement(RIGHT);
 }
 void Barnim::Hero::onDownMovement()
 {
-    Barnim::DrawableObject::movement(3);
+    Barnim::DrawableObject::movement(DOWN);
 }

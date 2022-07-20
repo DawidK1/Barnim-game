@@ -18,20 +18,28 @@ sf::Sprite Barnim::DrawableObject::getTexture()
 }
 void Barnim::DrawableObject::movement(int options)
 {
-	if (options==0)
+	if (options==UP)
 	{
-		position[1]=position[1]-1;
+		position[1]=position[1]-movementValue;
 	}
-	if (options==1)
+	if (options==LEFT)
 	{
-		position[0]=position[0]-1;
+		position[0]=position[0]-movementValue;
 	}
-	if (options==2)
+	if (options==RIGHT)
 	{
-		position[0]=position[0]+1;
+		position[0]=position[0]+movementValue;
 	}
-	if (options==3)
+	if (options==DOWN)
 	{
-		position[1]=position[1]+1;
+		position[1]=position[1]+movementValue;
 	}
+}
+void Barnim::DrawableObject::increaseSpeed()
+{
+		movementValue+=1;
+}
+void Barnim::DrawableObject::decreaseSpeed()
+{
+		movementValue-=1;
 }
