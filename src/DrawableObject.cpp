@@ -43,3 +43,11 @@ void Barnim::DrawableObject::decreaseSpeed()
 {
 		movementValue-=1;
 }
+void Barnim::DrawableObject::update(float timeElapsed)
+{
+	move(timeElapsed);
+}
+void Barnim::DrawableObject::move(float timeElapsed)
+{
+	position+=velocity*timeElapsed;
+}

@@ -6,7 +6,10 @@ SOURCES=src/main.cpp \
         src/Control.cpp\
 		src/DrawableObject.cpp\
 		src/hero.cpp\
-		src/keyboard.cpp
+		src/keyboard.cpp\
+		src/enemy.cpp\
+		src/util.cpp\
+		
 		
 OBJECTS=$(SOURCES:.cpp=.o)
 EXECUTABLE=build/main

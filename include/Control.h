@@ -27,7 +27,7 @@ class Control{
         void center_window();
         void events(sf::Event);
         void time_update();
-        void update();
+        void update(float timeElapsed);
         void render();
         void run();
         void addTexture(char *filename, int x, int y);

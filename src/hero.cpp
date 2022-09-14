@@ -2,17 +2,31 @@
 
 void Barnim::Hero::onUpMovement()
 {
-    Barnim::DrawableObject::movement(UP);
+    velocity[1]=-25;
+    timesincelastkeepress=0;
 }
 void Barnim::Hero::onLeftMovement()
 {
-    Barnim::DrawableObject::movement(LEFT);
+    velocity[0]=-25;
+    timesincelastkeepress=0;
 }
 void Barnim::Hero::onRightMovement()
 {
-    Barnim::DrawableObject::movement(RIGHT);
+    velocity[0]=+25;
+    timesincelastkeepress=0;
 }
 void Barnim::Hero::onDownMovement()
 {
-    Barnim::DrawableObject::movement(DOWN);
+    velocity[1]=+25;
+    timesincelastkeepress=0;
+}
+void Barnim::Hero::update(float timeElapsed)
+{
+    Barnim::DrawableObject::update(timeElapsed);
+    timesincelastkeepress+=timeElapsed;
+    if (timesincelastkeepress>0.4)
+    {
+        velocity[0]=0;
+        velocity[1]=0;
+    }
 }

@@ -1,10 +1,9 @@
 #include "Control.h"
 #include "hero.h"
-
+#include "enemy.h"
 // make it global to be used by keyboard
 Barnim::Hero Hero;
-
-
+Barnim::Enemy Enemy;
 void moveDown()
 {
 	Hero.onDownMovement();
@@ -40,5 +39,7 @@ int main(){
 	app.keyboard.add_callback(moveRight,sf::Keyboard::D);
 	app.keyboard.add_callback(moveFast,sf::Keyboard::P);
 	app.keyboard.add_callback(moveSlow,sf::Keyboard::L);
+	Enemy.LoadTexture("res/graphics/enemy.png",300,300,0,0);
+	app.addDrawableObject(&Enemy);
 	app.run();
 }

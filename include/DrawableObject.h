@@ -4,12 +4,14 @@
 #include<glm/glm.hpp>
 #include<SFML/Graphics.hpp>
 #include<iostream>
+#include "util.h"
 namespace Barnim {
 	class DrawableObject {
 		protected:
 			sf::Texture texture;
 			sf::Sprite sprite;
 			glm::vec2 position;
+			glm::vec2 velocity;
 			glm::vec2 size;
 			glm::vec2 texCoords;
 			float movementValue=3;
@@ -24,6 +26,8 @@ namespace Barnim {
 			void movement(int options);
 			void increaseSpeed();
 			void decreaseSpeed();
+			virtual void update(float timeElapsed);
+			virtual void move(float timeElapsed);
 			int UP=0;
 			int DOWN=1;
 			int RIGHT=2;

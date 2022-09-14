@@ -18,17 +18,6 @@ Control::Control(bool scr) : fullscreen(scr)
 	textures.reserve(1000);
 }
 
-void Control::output()
-{
-// 	std::cout << "Monitor size: " << monitor[0] << ", " << monitor[1] << std::endl;
-// 	std::cout << "Screen size: " << screen[0] << ", " << screen[1] << std::endl;
-// 	std::cout << "Fullscreen: " << fullscreen << std::endl;
-// 	std::cout << "Frame Time: " << time.asSeconds() << std::endl;
-// 	std::cout << "Game Time: " << game_time.asSeconds() << std::endl;
-// 	std::cout << "Mouse Position: " << mouse.x << " " << mouse.y << std::endl;
-// 	std::cout << std::endl;
-}
-
 void Control::center_window()
 {
 	window.setPosition(
@@ -52,37 +41,16 @@ void Control::events(sf::Event e)
 				window.close();
 			}
 			keyboard.on_key_pressed(e.key.code);
-			// if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up))
-			// {std::cout<<"Up arrow"<<std::endl;}
-			// if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left))
-			// {std::cout<<"Left arrow"<<std::endl;}
-			// if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right))
-			// {std::cout<<"Right arrow"<<std::endl;}
-			// if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down))
-			// {std::cout<<"Down arrow"<<std::endl;}
-			// if (sf::Keyboard::isKeyPressed(sf::Keyboard::W))
-			// {std::cout<<"W key"<<std::endl;}
-			// if (sf::Keyboard::isKeyPressed(sf::Keyboard::A))
-			// {std::cout<<"A key"<<std::endl;}
-			// if (sf::Keyboard::isKeyPressed(sf::Keyboard::S))
-			// {std::cout<<"S key"<<std::endl;}
-			// if (sf::Keyboard::isKeyPressed(sf::Keyboard::D))
-			// {std::cout<<"D key"<<std::endl;}
 		}
 	}
 }
 
-void Control::time_update()
+void Control::update(float timeElapsed)
 {
-	time = clock.restart();
-	game_time = game_clock.getElapsedTime();
-}
-
-void Control::update()
-{
-	output();
-	time_update();
-	mouse = sf::Mouse::getPosition(window);
+	for (auto Objectptr:objects)
+	{
+		Objectptr->update(timeElapsed);
+	}
 }
 
 void Control::render()
@@ -108,11 +76,15 @@ void Control::render()
 
 void Control::run()
 {
+	sf::Clock clock;
+	float timeElapsed;
 	while (window.isOpen())
 	{
+		timeElapsed=clock.getElapsedTime().asSeconds();
+		clock.restart();
 		sf::Event event;
 		events(event);
-		update();
+		update(timeElapsed);//TODO znalesc czas jaki uplyna od ostatniej ramki
 		render();
 	}
 }
