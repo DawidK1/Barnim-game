@@ -17,10 +17,9 @@ class Control{
         unsigned int monitor[2] = {sf::VideoMode::getDesktopMode().width, sf::VideoMode::getDesktopMode().height},
             screen[2] = {800,600};
         bool fullscreen;
-        std::string title = "SFML test";
+        std::string title = "Barnim";
         sf::Time time, game_time;
         sf::Clock clock, game_clock;
-        sf::Vector2i mouse;
         
         Control(bool);
         void output();

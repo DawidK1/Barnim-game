@@ -7,6 +7,7 @@ namespace Barnim
 	{
 		private:
 		volatile float timesincelastkeepress;
+		double speed=50;
 		public:
 		Hero(){};
 		~Hero(){};

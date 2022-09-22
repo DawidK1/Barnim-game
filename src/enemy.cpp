@@ -7,7 +7,6 @@ void Barnim::Enemy::update(float timeElapsed)
 }
 void Barnim::Enemy::goToTarget(glm::vec2 targetPositon)
 {
-    printVector(velocity);
     float length=glm::length(targetPositon-position);
     if (length<0.001)
     {
@@ -15,7 +14,7 @@ void Barnim::Enemy::goToTarget(glm::vec2 targetPositon)
     }
     else
     {
-        velocity=(targetPositon-position)/(glm::length(targetPositon-position));
+        velocity=glm::normalize(targetPositon-position);
         velocity=velocity*(float)15.0;
     }
 }

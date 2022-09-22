@@ -2,22 +2,22 @@
 
 void Barnim::Hero::onUpMovement()
 {
-    velocity[1]=-25;
+    velocity[1]=-speed;
     timesincelastkeepress=0;
 }
 void Barnim::Hero::onLeftMovement()
 {
-    velocity[0]=-25;
+    velocity[0]=-speed;
     timesincelastkeepress=0;
 }
 void Barnim::Hero::onRightMovement()
 {
-    velocity[0]=+25;
+    velocity[0]=+speed;
     timesincelastkeepress=0;
 }
 void Barnim::Hero::onDownMovement()
 {
-    velocity[1]=+25;
+    velocity[1]=+speed;
     timesincelastkeepress=0;
 }
 void Barnim::Hero::update(float timeElapsed)

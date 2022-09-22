@@ -55,8 +55,6 @@ void Control::update(float timeElapsed)
 
 void Control::render()
 {
-	//sf::Sprite sprite;
-	//glm::vec2 position; 
 	window.clear();
 
 	for(auto sprite:sprites)
@@ -65,9 +63,6 @@ void Control::render()
 	}
 	for (auto Objectptr:objects)
 	{
-		//sprite=Objectptr->getTexture();
-
-		//sprite.setPosition(sf::Vector2f(position.x, position.y));
 		window.draw(Objectptr->getTexture());
 	}
 	
@@ -84,7 +79,7 @@ void Control::run()
 		clock.restart();
 		sf::Event event;
 		events(event);
-		update(timeElapsed);//TODO znalesc czas jaki uplyna od ostatniej ramki
+		update(timeElapsed);
 		render();
 	}
 }
