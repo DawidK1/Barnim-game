@@ -5,13 +5,13 @@
 void Barnim::Enemy::update(float timeElapsed)
 {
     Barnim::DrawableObject::update(timeElapsed);
-    goToTarget(glm::vec2 (400,100));
+    goToTarget(getHeroPos());
 }
 
 void Barnim::Enemy::goToTarget(glm::vec2 targetPositon)
 {
     float length=glm::length(targetPositon-position);
-    if (length<0.001)
+    if (length<40.0)
     {
         velocity=velocity*(float)0;
     }
@@ -33,4 +33,13 @@ glm::vec2 Barnim::Enemy::getHeroPos()
         return heroes.at(0)->getPos();
     }
     return glm::vec2(5,5);
+}
+
+void Barnim::Enemy::SpawnNewEnemy(glm::vec2 pos)
+{
+    Barnim::Enemy Enemy;
+    Enemy.LoadTexture("res/graphics/enemy.png",200,200,0,0);
+    Enemy.position=pos;
+    auto spawner=getobjectSpawnerInstance();
+    
 }

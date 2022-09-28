@@ -2,8 +2,9 @@
 #include "hero.h"
 #include "enemy.h"
 #include "gameStatusProvider.h"
-
+#include "objectSpawner.h"
 Barnim::GameStatusProvider g_gameStatusProvider;
+Barnim::ObjectSpawner g_objectSpawner;
 
 
 Barnim::Hero Hero;
@@ -28,6 +29,7 @@ int main(){
 	Control app(false);
 
 	g_gameStatusProvider.attachGameControl(&app);
+	g_objectSpawner.attachGameControl(&app);
 	app.addTexture("res/graphics/bg.png",0,0);
 	Hero.LoadTexture("res/graphics/hero.png",200,200,0,0);
 	app.addDrawableObject(&Hero);

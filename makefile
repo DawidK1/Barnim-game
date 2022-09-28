@@ -10,6 +10,7 @@ SOURCES=src/main.cpp \
 		src/enemy.cpp\
 		src/util.cpp\
 		src/gameStatusProvider.cpp\
+		src/objectSpawner.cpp\
 		
 		
 		
