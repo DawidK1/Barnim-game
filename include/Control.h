@@ -8,11 +8,12 @@
 #include "keyboard.h"
 class Control{
     private:
-    std::vector<sf::Texture> textures;
-    std::vector<sf::Sprite> sprites;
-    std::vector<Barnim::DrawableObject*> objects;
+        std::vector<sf::Texture> textures;
+        std::vector<sf::Sprite> sprites;
+        std::vector<Barnim::DrawableObject*> objects;
+
     public:
-    Barnim::Keyboard keyboard;
+        Barnim::Keyboard keyboard;
         sf::RenderWindow window;
         unsigned int monitor[2] = {sf::VideoMode::getDesktopMode().width, sf::VideoMode::getDesktopMode().height},
             screen[2] = {800,600};
@@ -31,5 +32,6 @@ class Control{
         void run();
         void addTexture(char *filename, int x, int y);
         void addDrawableObject(Barnim::DrawableObject *object);
+        std::vector<Barnim::DrawableObject*> getAllObjects() {return objects;};
 };   
 #endif

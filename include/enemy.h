@@ -10,6 +10,9 @@ namespace Barnim
 		~Enemy(){};
 		void update(float timeElapsed)override;
 		void goToTarget(glm::vec2 targetPositon);
+
+		private:
+		glm::vec2 getHeroPos();
 	};
 };
 #endif

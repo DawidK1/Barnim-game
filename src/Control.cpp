@@ -4,7 +4,6 @@
 #include <SFML/Window.hpp>
 #include <SFML/Graphics.hpp>
 
-
 Control::Control(bool scr) : fullscreen(scr)
 {
 	time = sf::seconds(0);
@@ -98,7 +97,9 @@ void Control::addTexture(char *filename, int x, int y)
 	sprite.setTexture(textures[textures.size()-1]);
 	sprites.push_back(sprite);
 }
+
 void Control::addDrawableObject(Barnim::DrawableObject *object)
 {
 	objects.push_back(object);
 }
+

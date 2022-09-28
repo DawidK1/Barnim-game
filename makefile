@@ -9,6 +9,8 @@ SOURCES=src/main.cpp \
 		src/keyboard.cpp\
 		src/enemy.cpp\
 		src/util.cpp\
+		src/gameStatusProvider.cpp\
+		
 		
 		
 OBJECTS=$(SOURCES:.cpp=.o)

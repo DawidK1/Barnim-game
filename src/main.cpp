@@ -1,6 +1,11 @@
 #include "Control.h"
 #include "hero.h"
 #include "enemy.h"
+#include "gameStatusProvider.h"
+
+Barnim::GameStatusProvider g_gameStatusProvider;
+
+
 Barnim::Hero Hero;
 Barnim::Enemy Enemy;
 void moveDown()
@@ -21,6 +26,8 @@ void moveRight()
 }
 int main(){
 	Control app(false);
+
+	g_gameStatusProvider.attachGameControl(&app);
 	app.addTexture("res/graphics/bg.png",0,0);
 	Hero.LoadTexture("res/graphics/hero.png",200,200,0,0);
 	app.addDrawableObject(&Hero);
