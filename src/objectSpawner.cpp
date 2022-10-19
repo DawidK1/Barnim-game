@@ -8,7 +8,7 @@ void Barnim::ObjectSpawner::attachGameControl(Control *control)
     controlPtr = control;
 }
 
-Barnim::ObjectSpawner *objectSpawnerInstance()
+Barnim::ObjectSpawner *Barnim::ObjectSpawner::objectSpawnerInstance()
 {
     return &g_objectSpawner;
 }

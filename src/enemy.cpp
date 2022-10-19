@@ -1,7 +1,7 @@
 #include "enemy.h"
 #include "util.h"
 #include "gameStatusProvider.h"
-
+#include "objectSpawner.h"
 void Barnim::Enemy::update(float timeElapsed)
 {
     Barnim::DrawableObject::update(timeElapsed);
@@ -37,9 +37,12 @@ glm::vec2 Barnim::Enemy::getHeroPos()
 
 void Barnim::Enemy::SpawnNewEnemy(glm::vec2 pos)
 {
-    Barnim::Enemy Enemy;
-    Enemy.LoadTexture("res/graphics/enemy.png",200,200,0,0);
-    Enemy.position=pos;
-    auto spawner=getobjectSpawnerInstance();
-    
+    auto spawner= Barnim::ObjectSpawner::objectSpawnerInstance();
+    std::unique_ptr<Barnim::Enemy> enemyPtr(new Barnim::Enemy());
+    enemyPtr->LoadTexture("res/graphics/enemy.png",200,200,0,0);
+
+    enemyPtr->position = pos;
+
+    spawner->controlPtr->addDrawableObject(enemyPtr);
+
 }

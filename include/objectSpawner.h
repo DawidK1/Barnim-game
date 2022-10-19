@@ -10,7 +10,8 @@ namespace Barnim
         Control *controlPtr;
     public:
         void attachGameControl(Control *control);
-        Barnim::ObjectSpawner *objectSpawnerInstance();
+        static Barnim::ObjectSpawner *objectSpawnerInstance();
+        
     };
 };
 #endif

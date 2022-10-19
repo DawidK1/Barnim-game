@@ -13,14 +13,13 @@ namespace Barnim {
 			glm::vec2 position;
 			glm::vec2 velocity;
 			glm::vec2 size;
-			glm::vec2 texCoords;
 		public:
 			DrawableObject(){};
+			DrawableObject(DrawableObject & oldObj);
 			~DrawableObject(){};
 			void LoadTexture( std::string texturePath, float x, float y, float w, float h );
 			virtual sf::Sprite getTexture();
 			glm::vec2 getPos(){ return position; };
-			glm::vec2 getCoords(){ return texCoords; };
 			virtual void update(float timeElapsed);
 			virtual void move(float timeElapsed);
 	};
