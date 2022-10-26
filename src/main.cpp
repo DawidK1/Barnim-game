@@ -6,38 +6,45 @@
 Barnim::GameStatusProvider g_gameStatusProvider;
 Barnim::ObjectSpawner g_objectSpawner;
 
+std::shared_ptr<Barnim::Hero> Hero;
 
-Barnim::Hero Hero;
-Barnim::Enemy Enemy;
 void moveDown()
 {
-	Hero.onDownMovement();
+	Hero->onDownMovement();
 }
 void moveUp()
 {
-	Hero.onUpMovement();
+	Hero->onUpMovement();
 }
 void moveLeft()
 {
-	Hero.onLeftMovement();
+	Hero->onLeftMovement();
 }
 void moveRight()
 {
-	Hero.onRightMovement();
+	Hero->onRightMovement();
 }
-int main(){
+int main()
+{
 	Control app(false);
 
 	g_gameStatusProvider.attachGameControl(&app);
 	g_objectSpawner.attachGameControl(&app);
-	app.addTexture("res/graphics/bg.png",0,0);
-	Hero.LoadTexture("res/graphics/hero.png",200,200,0,0);
-	app.addDrawableObject(&Hero);
-	app.keyboard.add_callback(moveDown,sf::Keyboard::S);
-	app.keyboard.add_callback(moveUp,sf::Keyboard::W);
-	app.keyboard.add_callback(moveLeft,sf::Keyboard::A);
-	app.keyboard.add_callback(moveRight,sf::Keyboard::D);
-	Enemy.LoadTexture("res/graphics/enemy.png",300,300,0,0);
-	app.addDrawableObject(&Enemy);
+
+	Hero = std::shared_ptr<Barnim::Hero>(new Barnim::Hero());
+
+	app.addTexture("res/graphics/bg.png", 0, 0);
+	Hero->LoadTexture("res/graphics/Hero.png", 200, 200, 0, 0);
+
+	app.addDrawableObject(Hero);
+
+	app.keyboard.add_callback(moveDown, sf::Keyboard::S);
+	app.keyboard.add_callback(moveUp, sf::Keyboard::W);
+	app.keyboard.add_callback(moveLeft, sf::Keyboard::A);
+	app.keyboard.add_callback(moveRight, sf::Keyboard::D);
+	for (int i = 30; i < 400; i += 22)
+	{
+		Barnim::Enemy::SpawnNewEnemy(glm::vec2(i, i + 200));
+	}
 	app.run();
 }

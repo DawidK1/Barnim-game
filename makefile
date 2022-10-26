@@ -1,10 +1,10 @@
 CC=g++
-CFLAGS=-c -Wall -std=c++11 -Iinclude/
+CFLAGS=-c -g -Wall -std=c++11 -Iinclude/
 LDFLAGS=
 LIBFLAGS=-lsfml-graphics -lsfml-window -lsfml-system
 SOURCES=src/main.cpp \
-        src/Control.cpp\
-		src/DrawableObject.cpp\
+        src/control.cpp\
+		src/drawableObject.cpp\
 		src/hero.cpp\
 		src/keyboard.cpp\
 		src/enemy.cpp\
@@ -20,7 +20,7 @@ EXECUTABLE=build/main
 all: $(SOURCES) $(EXECUTABLE)
         
 $(EXECUTABLE): $(OBJECTS)
-	$(CC) $(LDFLAGS) $(OBJECTS) -o $@ $(LIBFLAGS)
+	$(CC) $(LDFLAGS) $(OBJECTS) -o  $@ $(LIBFLAGS)
 
 .cpp.o:
 	$(CC) $(CFLAGS) $< -o $@ $(LIBFLAGS)

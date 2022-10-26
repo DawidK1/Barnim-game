@@ -1,5 +1,5 @@
 
-#include "Control.h"
+#include "control.h"
 #include <iostream>
 #include <SFML/Window.hpp>
 #include <SFML/Graphics.hpp>
@@ -83,7 +83,7 @@ void Control::run()
 	}
 }
 
-void Control::addTexture(char *filename, int x, int y)
+void Control::addTexture(std::string filename, int x, int y)
 {
 	sf::Texture texture;
 	if (!texture.loadFromFile(filename))
@@ -98,7 +98,7 @@ void Control::addTexture(char *filename, int x, int y)
 	sprites.push_back(sprite);
 }
 
-void Control::addDrawableObject(Barnim::DrawableObject *object)
+void Control::addDrawableObject(shared_ptr<Barnim::DrawableObject>object)
 {
 	objects.push_back(object);
 }

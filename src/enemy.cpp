@@ -37,10 +37,10 @@ glm::vec2 Barnim::Enemy::getHeroPos()
 
 void Barnim::Enemy::SpawnNewEnemy(glm::vec2 pos)
 {
-    auto spawner= Barnim::ObjectSpawner::objectSpawnerInstance();
-    std::unique_ptr<Barnim::Enemy> enemyPtr(new Barnim::Enemy());
-    enemyPtr->LoadTexture("res/graphics/enemy.png",200,200,0,0);
+    auto spawner= Barnim::ObjectSpawner::getObjectSpawnerInstance();
+    std::shared_ptr<Barnim::Enemy> enemyPtr(new Enemy());
 
+    enemyPtr->LoadTexture("res/graphics/enemy.png",200,200,0,0);
     enemyPtr->position = pos;
 
     spawner->controlPtr->addDrawableObject(enemyPtr);

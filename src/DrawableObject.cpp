@@ -1,4 +1,4 @@
-#include "DrawableObject.h"
+#include "drawableObject.h"
 
 Barnim::DrawableObject::DrawableObject(DrawableObject &oldObj)
 {
@@ -9,8 +9,11 @@ Barnim::DrawableObject::DrawableObject(DrawableObject &oldObj)
 	this->velocity = oldObj.velocity;
 	this->size = oldObj.size;
 	
+
+
+
+
 	this->sprite.setTexture(this->texture);
-	this->sprite.setPosition(sf::Vector2f(position[0], position[1]));
 }
 
 void Barnim::DrawableObject::LoadTexture( std::string texturePath, float x, float y, float w, float h ) {

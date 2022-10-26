@@ -1,6 +1,6 @@
 #ifndef HERO_H
 #define HERO_H
-#include "DrawableObject.h"
+#include "drawableObject.h"
 namespace Barnim
 {
 	class Hero : public virtual DrawableObject

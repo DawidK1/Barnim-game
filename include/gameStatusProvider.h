@@ -1,6 +1,6 @@
 #ifndef GAME_STATUS_PROVIDER_H
 #define GAME_STATUS_PROVIDER_H
-#include "DrawableObject.h"
+#include "drawableObject.h"
 #include "control.h"
 #include "hero.h"
 using namespace std;
@@ -15,7 +15,7 @@ class GameStatusProvider
   public:
 	GameStatusProvider() { controlPtr = NULL; };
 	void attachGameControl(Control *control);
-	vector<Barnim::Hero *> getHeroes();
+	vector<shared_ptr<Barnim::Hero>> getHeroes();
 };
 
 }; // namespace Barnim

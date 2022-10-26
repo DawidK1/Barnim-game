@@ -11,17 +11,17 @@ void Barnim::GameStatusProvider::attachGameControl(Control *control)
     controlPtr = control;
 }
 
-vector<Barnim::Hero *> Barnim::GameStatusProvider::getHeroes()
+vector<shared_ptr<Barnim::Hero>> Barnim::GameStatusProvider::getHeroes()
 {
     // TODO check controlPtr for NULL value;
-    vector<Barnim::Hero *> heroes;
+    vector<shared_ptr<Barnim::Hero>> heroes;
     auto allObjects = controlPtr->getAllObjects();
 
-    for (DrawableObject *object : allObjects)
+    for (auto object : allObjects)
     {
         if (strcmp(typeid(*object).name(), typeid(Barnim::Hero).name()) == 0)
         {
-            heroes.push_back(dynamic_cast<Barnim::Hero *>(object));
+            heroes.push_back(std::dynamic_pointer_cast<Barnim::Hero>(object));
         }
     }
     return heroes;
