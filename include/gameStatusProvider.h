@@ -3,6 +3,7 @@
 #include "drawableObject.h"
 #include "control.h"
 #include "hero.h"
+#include "enemy.h"
 using namespace std;
 namespace Barnim
 {
@@ -16,6 +17,7 @@ class GameStatusProvider
 	GameStatusProvider() { controlPtr = NULL; };
 	void attachGameControl(Control *control);
 	vector<shared_ptr<Barnim::Hero>> getHeroes();
+	vector<shared_ptr<Barnim::Enemy>> getEnemies();
 };
 
 }; // namespace Barnim

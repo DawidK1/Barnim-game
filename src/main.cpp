@@ -24,6 +24,10 @@ void moveRight()
 {
 	Hero->onRightMovement();
 }
+void attack()
+{
+	Hero->onAttack();
+}
 int main()
 {
 	Control app(false);
@@ -42,6 +46,7 @@ int main()
 	app.keyboard.add_callback(moveUp, sf::Keyboard::W);
 	app.keyboard.add_callback(moveLeft, sf::Keyboard::A);
 	app.keyboard.add_callback(moveRight, sf::Keyboard::D);
+	app.keyboard.add_callback(attack, sf::Keyboard::K);
 	for (int i = 30; i < 400; i += 22)
 	{
 		Barnim::Enemy::SpawnNewEnemy(glm::vec2(i, i + 200));

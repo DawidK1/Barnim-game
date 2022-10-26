@@ -2,6 +2,7 @@
 #include <typeinfo>
 #include <iostream>
 #include <cstring>
+#include "enemy.h"
 extern Barnim::GameStatusProvider g_gameStatusProvider;
 
 using namespace std;
@@ -25,6 +26,20 @@ vector<shared_ptr<Barnim::Hero>> Barnim::GameStatusProvider::getHeroes()
         }
     }
     return heroes;
+}
+vector<shared_ptr<Barnim::Enemy>> Barnim::GameStatusProvider::getEnemies()
+{
+    vector<shared_ptr<Barnim::Enemy>> enemies;
+    auto allObjects = controlPtr->getAllObjects();
+
+    for (auto object : allObjects)
+    {
+        if (strcmp(typeid(*object).name(), typeid(Barnim::Enemy).name()) == 0)
+        {
+            enemies.push_back(std::dynamic_pointer_cast<Barnim::Enemy>(object));
+        }
+    }
+    return enemies;
 }
 
 /*****************************************************/

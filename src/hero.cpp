@@ -1,4 +1,5 @@
 #include "hero.h"
+#include "gameStatusProvider.h"
 
 void Barnim::Hero::onUpMovement()
 {
@@ -29,4 +30,18 @@ void Barnim::Hero::update(float timeElapsed)
         velocity[0] = 0;
         velocity[1] = 0;
     }
+}
+void Barnim::Hero::onAttack()
+{
+    auto Enemies=getGameStatusProviderInstance()->getEnemies();
+    for (auto enemy : Enemies)
+    {
+        float distance=glm::length(enemy->getPos()-this->getPos());
+        if (distance<50)
+        {
+            enemy->doDamage(150);
+        }
+        
+    }
+    
 }

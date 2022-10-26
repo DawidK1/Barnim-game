@@ -15,6 +15,7 @@ namespace Barnim
 		void onLeftMovement();
 		void onRightMovement();
 		void onDownMovement();
+		void onAttack();
 		void update(float timeElapsed)override;
 	};
 };

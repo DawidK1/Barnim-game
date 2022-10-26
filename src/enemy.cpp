@@ -34,6 +34,15 @@ glm::vec2 Barnim::Enemy::getHeroPos()
     }
     return glm::vec2(5,5);
 }
+void Barnim::Enemy::doDamage(int damage)
+{
+    hp=hp-damage;
+    if (hp<=0)
+    {
+        std::cout<<endl<<"enemy death";
+    }
+    
+}
 
 void Barnim::Enemy::SpawnNewEnemy(glm::vec2 pos)
 {
