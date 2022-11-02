@@ -52,6 +52,6 @@ void Barnim::Enemy::SpawnNewEnemy(glm::vec2 pos)
     enemyPtr->LoadTexture("res/graphics/enemy.png",200,200,0,0);
     enemyPtr->position = pos;
 
-    spawner->controlPtr->addDrawableObject(enemyPtr);
+    spawner->spawn(enemyPtr);
 
 }

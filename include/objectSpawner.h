@@ -11,7 +11,8 @@ namespace Barnim
     public:
         void attachGameControl(Control *control);
         static Barnim::ObjectSpawner *getObjectSpawnerInstance();
-
+        void spawn(shared_ptr<Barnim::DrawableObject>object);
+        void despawn(Barnim::DrawableObject * objectToRemove);
     };
 };
 #endif
