@@ -39,7 +39,7 @@ void Barnim::Enemy::doDamage(int damage)
     hp=hp-damage;
     if (hp<=0)
     {
-        std::cout<<endl<<"enemy death";
+        remove();
     }
     
 }

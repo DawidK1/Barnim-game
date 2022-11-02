@@ -35,6 +35,7 @@ class Control
     void run();
     void addTexture(std::string filename, int x, int y);
     void addDrawableObject(shared_ptr<Barnim::DrawableObject> object);
+    void removeDrawableObject(Barnim::DrawableObject * objectToRemove);
     vector<shared_ptr<Barnim::DrawableObject>> getAllObjects() { return objects; };
 };
 #endif

@@ -103,3 +103,14 @@ void Control::addDrawableObject(shared_ptr<Barnim::DrawableObject>object)
 	objects.push_back(object);
 }
 
+void Control::removeDrawableObject(Barnim::DrawableObject * objectToRemove)
+{
+	for(size_t i = 0; i < objects.size(); i++)
+	{
+		if(objectToRemove == objects[i].get())
+		{
+			objects.erase(objects.begin() + i);
+			break;
+		}
+	}
+}

@@ -16,12 +16,13 @@ namespace Barnim {
 		public:
 			DrawableObject(){};
 			DrawableObject(DrawableObject & oldObj);
-			~DrawableObject(){};
+			~DrawableObject(){std::cout<<"drawableObj destructor"<<std::endl;};
 			void LoadTexture( std::string texturePath, float x, float y, float w, float h );
 			virtual sf::Sprite getTexture();
 			glm::vec2 getPos(){ return position; };
 			virtual void update(float timeElapsed);
 			virtual void move(float timeElapsed);
+			void remove();
 	};
 };
 #endif

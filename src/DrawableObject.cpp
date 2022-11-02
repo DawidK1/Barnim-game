@@ -1,5 +1,5 @@
 #include "drawableObject.h"
-
+#include "objectSpawner.h"
 Barnim::DrawableObject::DrawableObject(DrawableObject &oldObj)
 {
 	this->texture = oldObj.texture;
@@ -40,3 +40,9 @@ void Barnim::DrawableObject::move(float timeElapsed)
 {
 	position+=velocity*timeElapsed;
 }
+
+void Barnim::DrawableObject::remove()
+	{
+		auto spawner = Barnim::ObjectSpawner::getObjectSpawnerInstance();
+		spawner->controlPtr->removeDrawableObject(this);
+	}
