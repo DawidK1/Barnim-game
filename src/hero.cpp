@@ -39,7 +39,7 @@ void Barnim::Hero::onAttack()
         float distance=glm::length(enemy->getPos()-this->getPos());
         if (distance<50)
         {
-            enemy->doDamage(150);
+            enemy->doDamage(50);
         }
         
     }

@@ -40,7 +40,7 @@ int main()
 	app.addTexture("res/graphics/bg.png", 0, 0);
 	Hero->LoadTexture("res/graphics/Hero.png", 200, 200, 0, 0);
 
-	app.addDrawableObject(Hero);
+	g_objectSpawner.spawn(Hero);
 
 	app.keyboard.add_callback(moveDown, sf::Keyboard::S);
 	app.keyboard.add_callback(moveUp, sf::Keyboard::W);

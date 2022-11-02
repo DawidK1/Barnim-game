@@ -1,9 +1,9 @@
 #ifndef ENEMY_H
 #define ENEMY_H
-#include "drawableObject.h"
+#include "character.h"
 namespace Barnim
 {
-	class Enemy : public virtual DrawableObject
+	class Enemy : public virtual Character
 	{
 		public:
 		Enemy(){hp=100;};
@@ -11,10 +11,8 @@ namespace Barnim
 		void update(float timeElapsed)override;
 		void goToTarget(glm::vec2 targetPositon);
 		static void SpawnNewEnemy(glm::vec2 pos);
-		void doDamage(int damage);
 		private:
 		glm::vec2 getHeroPos();
-		int hp;
 	};
 };
 #endif

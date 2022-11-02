@@ -1,9 +1,9 @@
 #ifndef HERO_H
 #define HERO_H
-#include "drawableObject.h"
+#include "character.h"
 namespace Barnim
 {
-	class Hero : public virtual DrawableObject
+	class Hero : public virtual Character
 	{
 		private:
 		volatile float timesincelastkeepress;
