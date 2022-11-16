@@ -33,15 +33,16 @@ void Barnim::Hero::update(float timeElapsed)
 }
 void Barnim::Hero::onAttack()
 {
-    auto Enemies=getGameStatusProviderInstance()->getEnemies();
-    for (auto enemy : Enemies)
+    if (isAttackReady())
     {
-        float distance=glm::length(enemy->getPos()-this->getPos());
-        if (distance<50)
+
+        auto Enemies = getGameStatusProviderInstance()->getEnemies();
+        for (auto enemy : Enemies)
         {
-            enemy->doDamage(50);
+            if (isInAttackRange(enemy.get()))
+            {
+                enemy->doDamage(attackPower);
+            }
         }
-        
     }
-    
 }
