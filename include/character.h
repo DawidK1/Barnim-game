@@ -6,7 +6,7 @@ namespace Barnim
 	class Character : public virtual DrawableObject
 	{
 		public:
-		Character(){hp=100;armor=20;attackRange=50;attackPower=100;};
+		Character();
 		~Character(){};
 		void doDamage(int damage);
 		bool isAttackReady();

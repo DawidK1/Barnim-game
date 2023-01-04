@@ -6,7 +6,7 @@ namespace Barnim
 	class Enemy : public virtual Character
 	{
 		public:
-		Enemy(){hp=100;};
+		Enemy();
 		~Enemy(){};
 		void update(float timeElapsed)override;
 		void goToTarget(glm::vec2 targetPositon);

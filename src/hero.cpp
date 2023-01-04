@@ -1,6 +1,12 @@
 #include "hero.h"
 #include "gameStatusProvider.h"
-
+Barnim::Hero::Hero()
+{
+    hp = 75;
+    armor = 15;
+    attackRange = 100;
+    attackPower = 75;
+}
 void Barnim::Hero::onUpMovement()
 {
     velocity[1] = -speed;

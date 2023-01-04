@@ -2,6 +2,13 @@
 #include "util.h"
 #include "gameStatusProvider.h"
 #include "objectSpawner.h"
+Barnim::Enemy::Enemy()
+{
+    hp = 100;
+    armor = 25;
+    attackRange = 100;
+    attackPower = 100;
+}
 void Barnim::Enemy::update(float timeElapsed)
 {
     Barnim::DrawableObject::update(timeElapsed);

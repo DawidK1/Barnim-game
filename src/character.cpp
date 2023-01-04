@@ -1,4 +1,11 @@
 #include "character.h"
+Barnim::Character::Character()
+{
+    hp = 100;
+    armor = 20;
+    attackRange = 50;
+    attackPower = 100;
+};
 void Barnim::Character::doDamage(int damage)
 {
     if (armor < damage)
