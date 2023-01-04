@@ -8,9 +8,10 @@ namespace Barnim
 		public:
 		Character();
 		~Character(){};
-		void doDamage(int damage);
+		void receiveDamage(int damage);
 		bool isAttackReady();
-		bool isInAttackRange(Barnim::Character* characterToAttack);
+		bool isInAttackRange(Barnim::Character* characterToAttack); 
+		void update(float timeElapsed)override;
 		protected:
 		int hp;
 		int armor;
@@ -18,6 +19,7 @@ namespace Barnim
 		int attackRange;
 		float attackSpeed;
 		float lastAttackTime;
+		float timesincelastattack;
 	};
 };
 #endif

@@ -29,7 +29,7 @@ void Barnim::Hero::onDownMovement()
 }
 void Barnim::Hero::update(float timeElapsed)
 {
-    Barnim::DrawableObject::update(timeElapsed);
+    Barnim::Character::update(timeElapsed);
     timesincelastkeepress += timeElapsed;
     if (timesincelastkeepress > 0.4)
     {
@@ -41,13 +41,13 @@ void Barnim::Hero::onAttack()
 {
     if (isAttackReady())
     {
-
+        timesincelastattack=0;
         auto Enemies = getGameStatusProviderInstance()->getEnemies();
         for (auto enemy : Enemies)
         {
             if (isInAttackRange(enemy.get()))
             {
-                enemy->doDamage(attackPower);
+                enemy->receiveDamage(attackPower);
             }
         }
     }

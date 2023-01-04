@@ -5,8 +5,9 @@ Barnim::Character::Character()
     armor = 20;
     attackRange = 50;
     attackPower = 100;
+    attackSpeed = 5;
 };
-void Barnim::Character::doDamage(int damage)
+void Barnim::Character::receiveDamage(int damage)
 {
     if (armor < damage)
     {
@@ -19,7 +20,14 @@ void Barnim::Character::doDamage(int damage)
 }
 bool Barnim::Character::isAttackReady()
 {
-    return true;
+    if (timesincelastattack>attackSpeed)
+    {
+        return true;
+    }
+    else
+    {
+        return false;
+    }
 }
 bool Barnim::Character::isInAttackRange(Barnim::Character *characterToAttack)
 {
@@ -32,4 +40,9 @@ bool Barnim::Character::isInAttackRange(Barnim::Character *characterToAttack)
     {
         return false;
     }
+}
+void Barnim::Character::update(float timeElapsed)
+{
+    Barnim::DrawableObject::update(timeElapsed);
+    timesincelastattack += timeElapsed;
 }

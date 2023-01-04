@@ -11,6 +11,7 @@ namespace Barnim
 		void update(float timeElapsed)override;
 		void goToTarget(glm::vec2 targetPositon);
 		static void SpawnNewEnemy(glm::vec2 pos);
+		void attackHeroIfPossible();
 		private:
 		glm::vec2 getHeroPos();
 	};
