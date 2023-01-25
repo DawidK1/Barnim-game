@@ -7,6 +7,7 @@
 #include "DrawableObject.h"
 #include "keyboard.h"
 #include <memory>
+#include <string>
 using namespace std;
 class Control
 {
@@ -14,7 +15,7 @@ class Control
     vector<sf::Texture> textures;
     vector<sf::Sprite> sprites;
     vector < shared_ptr<Barnim::DrawableObject> > objects;
-
+    bool isGamePaused=false;
   public:
     Barnim::Keyboard keyboard;
     sf::RenderWindow window;
@@ -37,5 +38,9 @@ class Control
     void addDrawableObject(shared_ptr<Barnim::DrawableObject> object);
     void removeDrawableObject(Barnim::DrawableObject * objectToRemove);
     vector<shared_ptr<Barnim::DrawableObject>> getAllObjects() { return objects; };
+    void pauseGame();
+    void resumeGame();
+    void togglePause();
+    void showText(string text, int posX, int poY);
 };
 #endif

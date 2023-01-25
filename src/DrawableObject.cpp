@@ -28,7 +28,7 @@ void Barnim::DrawableObject::LoadTexture( std::string texturePath, float x, floa
 		sprite.setTexture(texture);
 	}
 }
-sf::Sprite Barnim::DrawableObject::getTexture()
+sf::Drawable& Barnim::DrawableObject::getTexture()
 {
 	sprite.setPosition(sf::Vector2f(position[0], position[1]));
 	return sprite;

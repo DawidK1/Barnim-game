@@ -18,7 +18,7 @@ namespace Barnim {
 			DrawableObject(DrawableObject & oldObj);
 			~DrawableObject(){};
 			void LoadTexture( std::string texturePath, float x, float y, float w, float h );
-			virtual sf::Sprite getTexture();
+			virtual sf::Drawable& getTexture();
 			glm::vec2 getPos(){ return position; };
 			virtual void update(float timeElapsed);
 			virtual void move(float timeElapsed);

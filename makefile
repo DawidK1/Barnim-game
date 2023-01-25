@@ -12,6 +12,8 @@ SOURCES=src/main.cpp \
 		src/gameStatusProvider.cpp\
 		src/objectSpawner.cpp\
 		src/character.cpp\
+		src/gameStatusModifier.cpp\
+		src/text.cpp\
 		
 		
 		

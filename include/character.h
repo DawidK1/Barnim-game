@@ -8,7 +8,7 @@ namespace Barnim
 		public:
 		Character();
 		~Character(){};
-		void receiveDamage(int damage);
+		virtual void receiveDamage(int damage);
 		bool isAttackReady();
 		bool isInAttackRange(Barnim::Character* characterToAttack); 
 		void update(float timeElapsed)override;

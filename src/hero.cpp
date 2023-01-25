@@ -1,5 +1,6 @@
 #include "hero.h"
 #include "gameStatusProvider.h"
+#include "gameStatusModifier.h"
 Barnim::Hero::Hero()
 {
     hp = 75;
@@ -41,7 +42,7 @@ void Barnim::Hero::onAttack()
 {
     if (isAttackReady())
     {
-        timesincelastattack=0;
+        timesincelastattack = 0;
         auto Enemies = getGameStatusProviderInstance()->getEnemies();
         for (auto enemy : Enemies)
         {
@@ -49,6 +50,18 @@ void Barnim::Hero::onAttack()
             {
                 enemy->receiveDamage(attackPower);
             }
+        }
+    }
+}
+void Barnim::Hero::receiveDamage(int damage)
+{
+    if (armor < damage)
+    {
+        hp = hp - (damage - armor);
+        if (hp <= 0)
+        {
+            cout<<endl<<"You die";
+            getGameStatusModifierInstance()->pauseGame();
         }
     }
 }

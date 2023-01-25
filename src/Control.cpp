@@ -35,10 +35,6 @@ void Control::events(sf::Event e)
 		}
 		else if (e.type == sf::Event::KeyPressed)
 		{
-			if (e.key.code == sf::Keyboard::Escape)
-			{
-				window.close();
-			}
 			keyboard.on_key_pressed(e.key.code);
 		}
 	}
@@ -55,7 +51,6 @@ void Control::update(float timeElapsed)
 void Control::render()
 {
 	window.clear();
-
 	for(auto sprite:sprites)
 	{
 		window.draw(sprite);
@@ -64,7 +59,7 @@ void Control::render()
 	{
 		window.draw(Objectptr->getTexture());
 	}
-	
+	//window.draw(text);
 	window.display();
 }
 
@@ -78,7 +73,10 @@ void Control::run()
 		clock.restart();
 		sf::Event event;
 		events(event);
-		update(timeElapsed);
+		if (isGamePaused == false)
+		{
+			update(timeElapsed);
+		}
 		render();
 	}
 }
@@ -113,4 +111,29 @@ void Control::removeDrawableObject(Barnim::DrawableObject * objectToRemove)
 			break;
 		}
 	}
+}
+void Control::pauseGame()
+{
+	isGamePaused=true;
+	std::cout<<endl<<"Game Pause";
+}
+void Control::resumeGame()
+{
+	isGamePaused=false;
+	std::cout<<endl<<"Game Resume";
+}
+void Control::togglePause()
+{
+	if (isGamePaused==false)
+	{
+		pauseGame();
+	}
+	else
+	{
+		resumeGame();
+	}
+}
+void Control::showText(string text, int posX, int poY)
+{
+	
 }
