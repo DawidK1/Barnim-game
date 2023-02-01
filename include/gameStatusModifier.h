@@ -4,6 +4,7 @@
 #include "control.h"
 #include "hero.h"
 #include "enemy.h"
+#include "text.h"
 using namespace std;
 namespace Barnim
 {
@@ -12,12 +13,13 @@ class GameStatusModifier
 {
   private:
 	Control *controlPtr;
-
+	std::shared_ptr<Barnim::Text> pauseText;
   public:
-	GameStatusModifier() { controlPtr = NULL; };
+	GameStatusModifier();
 	void attachGameControl(Control *control);
 	void pauseGame();
     void resumeGame();
+	void togglePause();
 };
 
 }; // namespace Barnim

@@ -1,6 +1,7 @@
 #include "hero.h"
 #include "gameStatusProvider.h"
 #include "gameStatusModifier.h"
+#include "text.h"
 Barnim::Hero::Hero()
 {
     hp = 75;
@@ -60,6 +61,7 @@ void Barnim::Hero::receiveDamage(int damage)
         hp = hp - (damage - armor);
         if (hp <= 0)
         {
+            //Barnim::Text::showTextInTheMiddle("You die");
             cout<<endl<<"You die";
             getGameStatusModifierInstance()->pauseGame();
         }

@@ -133,7 +133,3 @@ void Control::togglePause()
 		resumeGame();
 	}
 }
-void Control::showText(string text, int posX, int poY)
-{
-	
-}

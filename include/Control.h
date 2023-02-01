@@ -15,8 +15,8 @@ class Control
     vector<sf::Texture> textures;
     vector<sf::Sprite> sprites;
     vector < shared_ptr<Barnim::DrawableObject> > objects;
-    bool isGamePaused=false;
   public:
+    bool isGamePaused=false;
     Barnim::Keyboard keyboard;
     sf::RenderWindow window;
     unsigned int monitor[2] = {sf::VideoMode::getDesktopMode().width, sf::VideoMode::getDesktopMode().height},
@@ -41,6 +41,5 @@ class Control
     void pauseGame();
     void resumeGame();
     void togglePause();
-    void showText(string text, int posX, int poY);
 };
 #endif

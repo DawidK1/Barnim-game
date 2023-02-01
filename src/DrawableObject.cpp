@@ -30,12 +30,12 @@ void Barnim::DrawableObject::LoadTexture( std::string texturePath, float x, floa
 }
 sf::Drawable& Barnim::DrawableObject::getTexture()
 {
-	sprite.setPosition(sf::Vector2f(position[0], position[1]));
 	return sprite;
 }
 void Barnim::DrawableObject::update(float timeElapsed)
 {
 	move(timeElapsed);
+	sprite.setPosition(sf::Vector2f(position[0], position[1]));
 }
 void Barnim::DrawableObject::move(float timeElapsed)
 {

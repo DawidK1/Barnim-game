@@ -9,7 +9,6 @@ Barnim::GameStatusProvider g_gameStatusProvider;
 Barnim::GameStatusModifier g_gameStatusModifier;
 Barnim::ObjectSpawner g_objectSpawner;
 std::shared_ptr<Barnim::Hero> Hero;
-std::shared_ptr<Barnim::Text> Text;
 Control app(false);
 void moveDown()
 {
@@ -33,18 +32,15 @@ void attack()
 }
 void pause()
 {
-	app.togglePause();
+	getGameStatusModifierInstance()->togglePause();
 }
 
 int main()
 {
-	Text = std::shared_ptr<Barnim::Text>(new Barnim::Text("test"));
 	g_gameStatusProvider.attachGameControl(&app);
 	g_gameStatusModifier.attachGameControl(&app);
 	g_objectSpawner.attachGameControl(&app);
-	g_objectSpawner.spawn(Text);
 	Hero = std::shared_ptr<Barnim::Hero>(new Barnim::Hero());
-
 	app.addTexture("res/graphics/bg.png", 0, 0);
 	Hero->LoadTexture("res/graphics/Hero.png", 200, 200, 0, 0);
 
@@ -56,7 +52,6 @@ int main()
 	app.keyboard.add_callback(moveRight, sf::Keyboard::D);
 	app.keyboard.add_callback(attack, sf::Keyboard::K);
 	app.keyboard.add_callback(pause, sf::Keyboard::Escape);
-	app.showText("test test 123", 100, 100);
 	for (int i = 30; i < 400; i += 22)
 	{
 		Barnim::Enemy::SpawnNewEnemy(glm::vec2(i, i + 200));
