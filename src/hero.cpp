@@ -4,7 +4,8 @@
 #include "text.h"
 Barnim::Hero::Hero()
 {
-    hp = 75;
+    hp = 200;
+    maxHp=hp;
     armor = 15;
     attackRange = 100;
     attackPower = 75;

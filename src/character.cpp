@@ -5,7 +5,13 @@ Barnim::Character::Character()
     armor = 20;
     attackRange = 50;
     attackPower = 100;
-    attackSpeed = 5;
+    attackSpeed = 1;
+    hpBar = std::shared_ptr<Barnim::hpBar>(new Barnim::hpBar());
+    Barnim::ObjectSpawner::getObjectSpawnerInstance()->spawn(hpBar);
+};
+Barnim::Character::~Character()
+{
+    hpBar->remove();
 };
 void Barnim::Character::receiveDamage(int damage)
 {
@@ -20,7 +26,7 @@ void Barnim::Character::receiveDamage(int damage)
 }
 bool Barnim::Character::isAttackReady()
 {
-    if (timesincelastattack>attackSpeed)
+    if (timesincelastattack > attackSpeed)
     {
         return true;
     }
@@ -45,4 +51,6 @@ void Barnim::Character::update(float timeElapsed)
 {
     Barnim::DrawableObject::update(timeElapsed);
     timesincelastattack += timeElapsed;
+    hpBar->position = position;
+    hpBar->setLevel((float)(hp) / (float)(maxHp));
 }

@@ -14,9 +14,8 @@ SOURCES=src/main.cpp \
 		src/character.cpp\
 		src/gameStatusModifier.cpp\
 		src/text.cpp\
-		
-		
-		
+		src/hpBar.cpp\
+				
 OBJECTS=$(SOURCES:.cpp=.o)
 EXECUTABLE=build/main
 

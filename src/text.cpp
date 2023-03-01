@@ -21,7 +21,6 @@ void Barnim::Text::update(float timeElapsed)
 {
 	Barnim::DrawableObject::update(timeElapsed);
 	text.setPosition(sf::Vector2f(position[0], position[1]));
-	std::cout<<std::endl<<"Update";
 }
 std::shared_ptr<Barnim::Text> Barnim::Text::getTextInTheMiddle(std::string textToShow)
 {

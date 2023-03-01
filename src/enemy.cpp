@@ -5,9 +5,10 @@
 Barnim::Enemy::Enemy()
 {
     hp = 100;
+    maxHp=hp;
     armor = 25;
-    attackRange = 100;
-    attackPower = 100;
+    attackRange = 80;
+    attackPower = 25;
 }
 void Barnim::Enemy::attackHeroIfPossible()
 {

@@ -5,6 +5,7 @@
 #include "GameStatusModifier.h"
 #include "objectSpawner.h"
 #include "text.h"
+#include "hpBar.h"
 Barnim::GameStatusProvider g_gameStatusProvider;
 Barnim::GameStatusModifier g_gameStatusModifier;
 Barnim::ObjectSpawner g_objectSpawner;

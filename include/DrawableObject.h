@@ -10,10 +10,10 @@ namespace Barnim {
 		protected:
 			sf::Texture texture;
 			sf::Sprite sprite;
-			glm::vec2 position;
 			glm::vec2 velocity;
 			glm::vec2 size;
 		public:
+			glm::vec2 position;
 			DrawableObject(){};
 			DrawableObject(DrawableObject & oldObj);
 			~DrawableObject(){};
